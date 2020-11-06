@@ -19,7 +19,6 @@ namespace PruebaAA.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=DESKTOP-5PUB6O5;Database=Prueba;Trusted_Connection=True;");
             }
         }
