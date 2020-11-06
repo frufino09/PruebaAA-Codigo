@@ -4,10 +4,10 @@ using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
-using PruebaAAA.Collections;
-using PruebaAAA.Models;
+using PruebaAA.Collections;
+using PruebaAA.Models;
 
-namespace PruebaAAA.Services
+namespace PruebaAA.Services
 {
     public static class InventoryService
     {

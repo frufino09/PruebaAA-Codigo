@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using PruebaAAA.Collections;
-using PruebaAAA.Models;
-using PruebaAAA.Services;
+using PruebaAA.Models;
+using PruebaAA.Services;
 
-namespace PruebaAAA
+namespace PruebaAA
 {
     static class Program
     {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using PruebaAAA.Models;
+using PruebaAA.Models;
 
-namespace PruebaAAA.Collections
+namespace PruebaAA.Collections
 {
     public static class InventoryCollection
     {

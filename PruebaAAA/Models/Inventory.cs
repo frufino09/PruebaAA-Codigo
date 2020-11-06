@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PruebaAAA.Models
+namespace PruebaAA.Models
 {
     public class Inventory
     {

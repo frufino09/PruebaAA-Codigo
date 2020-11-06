@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PruebaAAA.Models
+namespace PruebaAA.Models
 {
     public partial class DBContext : DbContext
     {
