@@ -1,4 +1,4 @@
-# PruebaAA-Codigo
+# PruebaAA-Código
 Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 
   - Se lee un fichero CSV alojado en una URL de Azure, se tranforma en un listado de Objetos que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar la data obtenida se eliminan todos los registros existentes en la base de datos de alguna importacion previa.
