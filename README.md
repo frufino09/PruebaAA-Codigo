@@ -14,4 +14,4 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 
 # Ejecutar Proyecto
  - Una ves descargado el proyecto debe montar la base de datos a travez del script que se encuentra dentro de la carperta AppData. 
- - Actualizar la cadena de conexion que esta dentro del fichero Models/DBContext en el metodo OnConfiguring. (Para proyectos reales el lugar de la cadena de conexion debe ser dentro de un fichero de configuracion)
+ - Actualizar la cadena de conexion que esta dentro del fichero Models/DBContext en el metodo OnConfiguring. (Para proyectos reales el lugar de la cadena de conexion debe ser dentro de un fichero de configuración json)
