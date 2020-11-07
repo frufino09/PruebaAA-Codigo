@@ -19,7 +19,8 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 
 # Conclusiones
  - Luego de realizar las pruebas para un volumen de datos de 17,175,295 los resultados fueron los siguientes:
- > Eliminacion 7m 54s 874ms
- > Inserción   4m 23s 770ms
- 
+ ```sh
+Eliminacion 7m 54s 874ms
+Inserción   4m 23s 770ms
+```
  - Ambiente de prueba CPU: core-i7 2.60GHz RAM: 16GB
