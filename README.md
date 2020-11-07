@@ -24,4 +24,8 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 Eliminar  7m 54s 874ms
 Insertar  4m 23s 770ms
 ```
- - Ambiente de prueba CPU: core-i7 2.60GHz RAM: 16GB
+ - Ambiente de prueba 
+ ```sh
+ CPU: core-i7 2.60GHz 
+ RAM: 16GB
+```
