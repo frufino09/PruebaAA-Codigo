@@ -19,7 +19,7 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
  - Actualizar la cadena de conexión que esta dentro del fichero Models/DBContext en el método OnConfiguring. (Para proyectos reales la cadena de conexión debe estar dentro de un fichero de configuración)
 
 # Conclusiones
- - Luego de realizar las pruebas para un volumen de datos de 17,175,295 los resultados fueron los siguientes:
+ - Luego de realizar las pruebas para un volumen de datos de 17,175,295 registros, los resultados fueron los siguientes:
  ```sh
 Eliminar  7m 54s 874ms
 Insertar  4m 23s 770ms
