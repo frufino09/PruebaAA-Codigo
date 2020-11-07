@@ -14,8 +14,8 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
  - Existen otras alternativas para este proposito como [EntityFramework.Utilities](https://github.com/MikaelEliasson/EntityFramework.Utilities) pero no son del todo seguras y por lo general aún tienen temas pendientes en desarrollo.
 
 # Ejecutar Proyecto
- - Una ves descargado el proyecto debe montar la base de datos a travez del script que se encuentra dentro de la carperta AppData. 
- - Actualizar la cadena de conexion que esta dentro del fichero Models/DBContext en el metodo OnConfiguring. (Para proyectos reales el lugar de la cadena de conexion debe ser dentro de un fichero de configuración json)
+ - Una ves descargado el proyecto debe montar la base de datos a través del script que se encuentra dentro de la carperta AppData. 
+ - Actualizar la cadena de conexión que esta dentro del fichero Models/DBContext en el metodo OnConfiguring. (Para proyectos reales el lugar de la cadena de conexión debe estar dentro de un fichero de configuración)
 
 # Conclusiones
  - Luego de realizar las pruebas para un volumen de datos de 17,175,295 los resultados fueron los siguientes:
