@@ -2,7 +2,7 @@
 Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 
   - Se lee un fichero CSV alojado en una URL de Azure, se tranforma en un listado de Objetos que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar la data obtenida se eliminan todos los registros existentes en la base de datos de alguna importacion previa.
-  - El objetivo de este trabajo es lograr realizar este proceso con grandes volumenes de datos de la manera mas eficiente posible y de la misma forma controlar los recusos utilizados.
+  - El objetivo de este trabajo es lograr realizar este proceso con grandes volumenes de datos de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
   
 # Antecedente
  - Entity Framework (EF) puede ser muy lento en las operaciones de inserción / actualización / eliminación en masa. Incluso los ajustes a menudo sugeridos para desactivar AutoDetectChanges y / o ValidateOnSaveEnabled no siempre ayudan.
@@ -10,8 +10,8 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
   - Ante este problema los desarrolladores en muchas ocaciones realizamos particiones en bloques de los datos para no cargar tanto la tarea de EF en su proceso de almacenamiento, logrando cierta mejora en el rendimiento del proceso, pero aun asi es muy lento. Este proceso de particionar los datos también aporta una disminución de la memoria utilizada, de esta forma se lograria un balance entre rendimiento y capacidad de memoria cuando sea necesario.
  
 # Propuesta de Solución
- - Existen varias bibliotecas que mejoran drásticamente el rendimiento de EF mediante el uso de operaciones masivas y por lotes, logrando realizar tareas en velocidades superir hasta 50 veces mas rapido. Para esta solución se deside utilizar la extencion [Entity Framework Extensions](https://entityframework-extensions.net/bulk-savechanges). Instalada mediante su paquete nuget [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/4.0.106)
- - Existen otras alternativas para este proposito como [EntityFramework.Utilities](https://github.com/MikaelEliasson/EntityFramework.Utilities) pero no son del todo seguras y por lo general aun tienen temas pendientes en desarrollo.
+ - Existen varias bibliotecas que mejoran drásticamente el rendimiento de EF mediante el uso de operaciones masivas y por lotes, logrando realizar tareas en velocidades superir hasta 50 veces más rápido. Para esta solución se decide utilizar la extencion [Entity Framework Extensions](https://entityframework-extensions.net/bulk-savechanges). Instalada mediante su paquete nuget [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/4.0.106)
+ - Existen otras alternativas para este proposito como [EntityFramework.Utilities](https://github.com/MikaelEliasson/EntityFramework.Utilities) pero no son del todo seguras y por lo general aún tienen temas pendientes en desarrollo.
 
 # Ejecutar Proyecto
  - Una ves descargado el proyecto debe montar la base de datos a travez del script que se encuentra dentro de la carperta AppData. 
