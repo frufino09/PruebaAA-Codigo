@@ -30,7 +30,7 @@ namespace PruebaAA.Services
                 PointOfSale = lineParse[0],
                 Product = lineParse[1],
                 Date = DateTime.TryParse("yyyy-MM-dd", out var date) ? date : DateTime.Now,
-                Stock = int.Parse(lineParse[3])
+                Stock = int.TryParse(lineParse[3], out var stock) ? stock : 0
             };
         }
 
