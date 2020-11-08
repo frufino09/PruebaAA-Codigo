@@ -5,10 +5,10 @@ Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
   - Se tiene un fichero .CSV alojado en una URL de Azure con 17,175,295 lineas de texto.
   - Un vez obtenido los datos, se deben transformar en un listado de objetos que posteriormente se almacenarán en una base de datos SQL Server.
   - Antes de guardar los datos obtenidos se eliminarán todos los registros existentes en la base de datos de alguna posible previa importación.
-  - Este proceso se debe realizar con el mejor rendimiento posible y el minimo consumo de recursos.
+  - Este proceso se debe realizar con el mejor rendimiento posible y el mínimo consumo de recursos.
   
  # Objetivo
-  - El objetivo de este desarrollo es dar solución al problema planteado de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
+  - El objetivo de este desarrollo es dar solución al problema planteado de la manera más eficiente posible y de la misma forma controlar los recursos utilizados.
   
 # Antecedentes
  - Cualquiera pensaría en tratar de utilizar Entity Framework Core para dar solución al problema e intentar manejarlo de alguna forma, pero; Entity Framework tiene fama de ser muy lento al guardar múltiples entidades. El problema de rendimiento se debe principalmente al método DetectChanges y al número de viajes de ida y vuelta de la base de datos. Por ejemplo, para SQL Server, para cada entidad que guarde, se debe realizar un viaje de ida y vuelta a la base de datos. Por lo tanto, si necesita insertar 100 entidades, se realizarán 100 viajes de ida y vuelta a la base de datos, lo que hace que el proceso sea muy lento. 
