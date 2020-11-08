@@ -1,5 +1,5 @@
 # PruebaAA<Código>
-Adición y Eliminación masiva grandes volúmenes de datos .Net Core 3.1
+Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
 
 # Problemática
   - Se tiene un fichero .CSV alojado en una URL de Azure con 17,175,295 lineas de texto, para la lectura se utilizará la clase HttpWebRequest perteneciente al dominio System.Net dado que el fichero se encuentra público, en caso de haber tenido el fichero con seguridad bajo algún tipo de autenticación se deberia utilizar la bliblioteca Azure.Storage.Blobs con su respectiva autenticación definiendo la ruta de almacenamiento del fichero.
