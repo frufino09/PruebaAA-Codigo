@@ -6,8 +6,7 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core 3.1
   - El objetivo de este trabajo es lograr realizar este proceso con grandes volúmenes de datos de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
   
 # Antecedentes
- - Entity Framework (EF) puede ser muy lento en las operaciones de inserción / actualización / eliminación en masa. Incluso los ajustes a menudo sugeridos para desactivar AutoDetectChanges y / o ValidateOnSaveEnabled no siempre ayudan.
-  -  Cuando se desea realizar trabajos con grandes volúmenes de datos para operaciones de transformación, inserción, actualización o eliminación masiva utilizando EF, se vuelve un proceso bastante complejo en términos de demora computacional, esto sucede porque por cada llamada del SaveChanges()  Entity Framework realiza un viaje de ida y vuelta a la base de datos por cada elemento, con el objetivo de revisar en cada paso la integridad de la estructura de la base de datos. 
+ - Entity Framework tiene fama de ser muy lento al guardar múltiples entidades. El problema de rendimiento se debe principalmente al método DetectChanges y al número de viajes de ida y vuelta de la base de datos. Por ejemplo, para SQL Server, para cada entidad que guarde, se debe realizar un viaje de ida y vuelta a la base de datos. Por lo tanto, si necesita insertar 100 entidades, se realizarán 100 viajes de ida y vuelta a la base de datos, lo que hace que el proceso sea muy lento. 
   - Ante este problema los desarrolladores en muchas ocasiones realizamos particiones en bloques de los datos para no cargar tanto la tarea de EF en su proceso de almacenamiento, logrando cierta mejora en el rendimiento del proceso, pero aún así es muy lento. Este proceso de particionar los datos también aporta una disminución de la memoria utilizada, de esta forma se lograria un balance entre rendimiento y capacidad de memoria cuando sea necesario.
  
 # Propuesta de Solución
