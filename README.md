@@ -34,7 +34,7 @@ Insertar 0h 03m 54s 920ms
 
 Entity Framework Core (3.1.9)
 Eliminar 1h 37m 47s 387ms
-Insertar 
+Insertar después de dos horas de ejecución se detuvo la prueba
 ```
 # Ambiente de prueba 
  ```sh
