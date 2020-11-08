@@ -2,7 +2,7 @@
 Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 
   - Se lee un fichero CSV alojado en una URL de Azure, para la lectura se utiliza la clase HttpWebRequest perteneciente al dominio System.Net dado que el fichero se encuentra público, en caso de haber tenido el fichero con seguridad bajo algún tipo de autenticación se deberia utilizar la bliblioteca Azure.Storage.Blobs con su respectiva autenticación definiendo la ruta de almacenamiento del fichero.
-  - Un vez obtenido los datos se transforman en un listado de objetos de tipo Inventory que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar la data obtenida se eliminan todos los registros existentes en la base de datos de alguna importación previa.
+  - Un vez obtenido los datos se transforman en un listado de objetos de tipo Inventory que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar la data obtenida se eliminan todos los registros existentes en la base de datos de alguna posible previa importación .
   - El objetivo de este trabajo es lograr realizar este proceso con grandes volúmenes de datos de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
   
 # Antecedentes
