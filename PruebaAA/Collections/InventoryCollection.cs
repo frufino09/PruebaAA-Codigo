@@ -14,9 +14,6 @@ namespace PruebaAA.Collections
         {
             await using var context = new DBContext();
             await context.BulkInsertAsync(inventoryList);
-            
-            //await context.Inventory.AddRangeAsync(inventoryList);
-            //await context.BulkSaveChangesAsync();
         }
 
         /// <summary>

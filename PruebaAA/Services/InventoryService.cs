@@ -26,8 +26,10 @@ namespace PruebaAA.Services
             {
                 var line = await streamReader.ReadLineAsync();
 
-                if(line == null || string.IsNullOrWhiteSpace(line) || line.Equals("PointOfSale;Product;Date;Stock"))
+                if (line == null || string.IsNullOrWhiteSpace(line) || line.Equals("PointOfSale;Product;Date;Stock"))
+                {
                     continue;
+                }
 
                 var lineParse = line.Split(';');
                 resultInventoryList.Add(new Inventory
