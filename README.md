@@ -27,7 +27,7 @@ Entity Framework Extensions
 Eliminar  6m 49s 417ms
 Insertar  3m 54s 920ms
 
-Entity Framework
+Entity Framework Core (3.1.9)
 Eliminar 1h 37m 47s 387ms
 Insertar 
 ```
