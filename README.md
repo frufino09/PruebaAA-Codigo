@@ -8,7 +8,7 @@ Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
   - Este proceso se debe realizar con el mejor rendimiento posible y el minimo consumo de recursos.
   
  # Objetivo
-  - El objetivo de este desarrollo es lograr dar solución al problema planteado de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
+  - El objetivo de este desarrollo es dar solución al problema planteado de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
   
 # Antecedentes
  - Cualquiera pensaria en tratar de utilizar Entity Framework Core para dar solución al problema e intentar manejarlo de alguna forma pero; Entity Framework tiene fama de ser muy lento al guardar múltiples entidades. El problema de rendimiento se debe principalmente al método DetectChanges y al número de viajes de ida y vuelta de la base de datos. Por ejemplo, para SQL Server, para cada entidad que guarde, se debe realizar un viaje de ida y vuelta a la base de datos. Por lo tanto, si necesita insertar 100 entidades, se realizarán 100 viajes de ida y vuelta a la base de datos, lo que hace que el proceso sea muy lento. 
