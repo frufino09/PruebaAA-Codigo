@@ -19,7 +19,7 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
  - Actualizar la cadena de conexión que está dentro del fichero Models/DBContext en el método OnConfiguring. (Para proyectos reales la cadena de conexión debe estar dentro de un fichero de configuración)
 
 # Conclusiones
- - Luego de realizar las pruebas para un volumen de datos de 17,175,295 de registros, los resultados fueron los siguientes:
+ - Luego de realizar las pruebas comparativas de rendimiento entre Entity Framework Core Extensions vs Entity Framework Core (3.1.9) para un volumen de datos de 17,175,295 de registros, los resultados fueron los siguientes:
  
  ```sh
 Entity Framework Extensions
