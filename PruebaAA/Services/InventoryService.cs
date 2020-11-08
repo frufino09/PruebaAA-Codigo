@@ -11,7 +11,7 @@ namespace PruebaAA.Services
 {
     public static class InventoryService
     {
-        private static char separator = ';';
+        private const char Separator = ';';
 
         /// <summary>
         /// Transform string to Inventory object
@@ -24,7 +24,7 @@ namespace PruebaAA.Services
                 return null;
             }
 
-            var lineParse = line.Split(separator);
+            var lineParse = line.Split(Separator);
             return new Inventory
             {
                 PointOfSale = lineParse[0],
