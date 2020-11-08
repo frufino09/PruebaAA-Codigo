@@ -29,12 +29,12 @@ Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
  
  ```sh
 Entity Framework Extensions
-Eliminar 0h 06m 49s 417ms
-Insertar 0h 03m 54s 920ms
+Eliminar: 0h 06m 49s 417ms
+Insertar: 0h 03m 54s 920ms
 
 Entity Framework Core (3.1.9)
-Eliminar 1h 37m 47s 387ms
-Insertar después de dos horas de ejecución se detuvo la prueba
+Eliminar: 1h 37m 47s 387ms
+Insertar: después de dos horas de ejecución se detuvo la prueba
 ```
 # Ambiente de prueba 
  ```sh
