@@ -25,6 +25,10 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
 Entity Framework Extensions
 Eliminar  6m 49s 417ms
 Insertar  3m 54s 920ms
+
+Entity Framework
+Eliminar 1h 37m 47s 387ms
+Insertar 
 ```
  - Ambiente de prueba 
  ```sh
