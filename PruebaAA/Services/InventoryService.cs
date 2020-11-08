@@ -11,6 +11,29 @@ namespace PruebaAA.Services
 {
     public static class InventoryService
     {
+        private static char separator = ';';
+
+        /// <summary>
+        /// Transform string to Inventory object
+        /// </summary>
+        /// <param name="line">line string</param>
+        private static Inventory ProcessLine(string line)
+        {
+            if (string.IsNullOrWhiteSpace(line) || line.Equals("PointOfSale;Product;Date;Stock"))
+            {
+                return null;
+            }
+
+            var lineParse = line.Split(separator);
+            return new Inventory
+            {
+                PointOfSale = lineParse[0],
+                Product = lineParse[1],
+                Date = DateTime.TryParse("yyyy-MM-dd", out var date) ? date : DateTime.Now,
+                Stock = int.Parse(lineParse[3])
+            };
+        }
+
         /// <summary>
         /// Read and transform the data in the inventory objects list from a csv file
         /// </summary>
@@ -25,20 +48,11 @@ namespace PruebaAA.Services
             while (!streamReader.EndOfStream)
             {
                 var line = await streamReader.ReadLineAsync();
-
-                if (line == null || string.IsNullOrWhiteSpace(line) || line.Equals("PointOfSale;Product;Date;Stock"))
+                var inventory = ProcessLine(line);
+                if (inventory != null)
                 {
-                    continue;
+                    resultInventoryList.Add(inventory);
                 }
-
-                var lineParse = line.Split(';');
-                resultInventoryList.Add(new Inventory
-                {
-                    PointOfSale = lineParse[0],
-                    Product = lineParse[1],
-                    Date = DateTime.ParseExact(lineParse[2], "yyyy-MM-dd",  CultureInfo.InvariantCulture),
-                    Stock = int.Parse(lineParse[3])
-                });
             }
 
             return resultInventoryList;
