@@ -2,7 +2,7 @@
 
 namespace PruebaAA.Models
 {
-    public class Inventory
+    public partial class Inventory
     {
         public long Id { get; set; }
         public string PointOfSale { get; set; }

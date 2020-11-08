@@ -11,34 +11,6 @@ namespace PruebaAA.Services
 {
     public static class InventoryService
     {
-        private const char Separator = ';';
-
-        /// <summary>
-        /// Transform string to Inventory object
-        /// </summary>
-        /// <param name="line">line string</param>
-        private static Inventory ProcessLine(string line)
-        {
-            if (string.IsNullOrWhiteSpace(line) || line.Equals("PointOfSale;Product;Date;Stock"))
-            {
-                return null;
-            }
-
-            var lineParse = line.Split(Separator);
-            if (lineParse.Length != 4)
-            {
-                return null;
-            }
-
-            return new Inventory
-            {
-                PointOfSale = lineParse[0],
-                Product = lineParse[1],
-                Date = DateTime.TryParse("yyyy-MM-dd", out var date) ? date : DateTime.Now,
-                Stock = int.TryParse(lineParse[3], out var stock) ? stock : 0
-            };
-        }
-
         /// <summary>
         /// Read and transform the data in the inventory objects list from a csv file
         /// </summary>
@@ -53,7 +25,7 @@ namespace PruebaAA.Services
             while (!streamReader.EndOfStream)
             {
                 var line = await streamReader.ReadLineAsync();
-                var inventory = ProcessLine(line);
+                var inventory = Inventory.FromString(line);
                 if (inventory != null)
                 {
                     resultInventoryList.Add(inventory);
@@ -78,6 +50,15 @@ namespace PruebaAA.Services
         public static async Task SaveAsync(IEnumerable<Inventory> inventoryList)
         {
             await InventoryCollection.SaveAsync(inventoryList);
+        }
+
+        /// <summary>
+        /// Get a list of elements from the database.
+        /// </summary>
+        ///<param name="count">Number of items to return.</param>
+        public static async Task<IEnumerable<Inventory>> GetAsync(int count)
+        {
+            return await InventoryCollection.GetAsync(count);
         }
     }
 }

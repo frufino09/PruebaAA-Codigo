@@ -7,7 +7,7 @@ using PruebaAA.Services;
 
 namespace PruebaAA
 {
-    static class Program
+    internal static class Program
     {
         private const string Url = "https://storage10082020.blob.core.windows.net/y9ne9ilzmfld/Stock.CSV";
 
@@ -22,13 +22,21 @@ namespace PruebaAA
             //Saving process 
             await SaveData(inventoryList);
 
+            //Get Elements from database
+            var elements = await GetData(5);
+            foreach (var element in elements)
+            {
+                Console.WriteLine("Id: {0}, PointOfSale: {1}, Product: {2}, Date: {3:yyyy-MM-dd}, Stock: {4}", 
+                                  element.Id, element.PointOfSale, element.Product, element.Date, element.Stock);
+            }
+            Console.WriteLine("...");
             Console.WriteLine("process completed successfully.");
             Console.ReadKey();
         }
 
         private static async Task RemoveExistData()
         {
-            Console.WriteLine("Remove data existing in database...");
+            Console.WriteLine("Removing existing data from database...");
             var removeExecution = new Stopwatch();
             removeExecution.Start();
 
@@ -42,7 +50,7 @@ namespace PruebaAA
 
         private static async Task<IEnumerable<Inventory>> ReadAndTransformAllData()
         {
-            Console.WriteLine("Read and transforming data from the file...");
+            Console.WriteLine("Reading and transforming data from the file...");
             var readExecution = new Stopwatch();
             readExecution.Start();
             
@@ -58,7 +66,7 @@ namespace PruebaAA
 
         private static async Task SaveData(IEnumerable<Inventory> inventoryList)
         {
-            Console.WriteLine("Save data to database...");
+            Console.WriteLine("Saving data to database...");
             var saveExecution = new Stopwatch();
             saveExecution.Start();
 
@@ -68,6 +76,11 @@ namespace PruebaAA
             var saveTimeSpan = saveExecution.Elapsed;
             Console.WriteLine("Saving data completed. Time: {0}h {1}m {2}s {3}ms",
                 saveTimeSpan.Hours, saveTimeSpan.Minutes, saveTimeSpan.Seconds, saveTimeSpan.Milliseconds);
+        }
+
+        private static async Task<IEnumerable<Inventory>> GetData(int count)
+        {
+            return await InventoryService.GetAsync(count);
         }
     }
 }
