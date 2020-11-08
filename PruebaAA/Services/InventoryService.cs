@@ -25,6 +25,11 @@ namespace PruebaAA.Services
             }
 
             var lineParse = line.Split(Separator);
+            if (lineParse.Length != 4)
+            {
+                return null;
+            }
+
             return new Inventory
             {
                 PointOfSale = lineParse[0],
