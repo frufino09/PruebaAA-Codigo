@@ -2,8 +2,9 @@
 Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
 
 # Problemática
-  - Se tiene un fichero .CSV alojado en una URL de Azure con 17,175,295 lineas de texto, para la lectura se utilizará la clase HttpWebRequest perteneciente al dominio System.Net dado que el fichero se encuentra público, en caso de haber tenido el fichero con seguridad bajo algún tipo de autenticación se deberia utilizar la bliblioteca Azure.Storage.Blobs con su respectiva autenticación definiendo la ruta de almacenamiento del fichero.
-  - Un vez obtenido los datos, se transforman en un listado de objetos que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar los datos obtenidos se eliminarán todos los registros existentes en la base de datos de alguna posible previa importación.
+  - Se tiene un fichero .CSV alojado en una URL de Azure con 17,175,295 lineas de texto.
+  - Un vez obtenido los datos, se deben transformar en un listado de objetos que posteriormente se almacenan en una base de datos SQL Server.
+  - Antes de guardar los datos obtenidos se eliminarán todos los registros existentes en la base de datos de alguna posible previa importación.
   - Este proceso se debe realizar con el mejor rendimiento posible y el minimo consumo de recursos.
   
  # Objetivo
@@ -14,7 +15,8 @@ Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
   - Ante este problema los desarrolladores en muchas ocasiones realizamos particiones en bloques de los datos para no cargar tanto la tarea de EF en su proceso de almacenamiento, logrando cierta mejora en el rendimiento del proceso, pero aún así es muy lento. Este proceso de particionar los datos también aporta una disminución de la memoria utilizada, de esta forma se lograria un balance entre rendimiento y la cantidad de memoria utilizada.
  
 # Propuesta de Solución
- - Existen varias bibliotecas que mejoran drásticamente el rendimiento de EF mediante el uso de operaciones masivas y por lotes, logrando realizar tareas que superan la velocidad de EF hasta 50 veces más rápido. 
+ - Para la lectura del fichero se utilizará la clase HttpWebRequest perteneciente al dominio System.Net dado que el fichero se encuentra público, en caso de haber tenido el fichero con seguridad bajo algún tipo de autenticación se deberia utilizar la bliblioteca Azure.Storage.Blobs con su respectiva autenticación definiendo la ruta de almacenamiento del fichero.
+ - Para manejar el tema de la eliminación y adición de los datos existen varias bibliotecas que mejoran drásticamente el rendimiento de EF mediante el uso de operaciones masivas y por lotes, logrando realizar tareas que superan la velocidad de EF hasta 50 veces más rápido. 
  - Para esta solución se decide utilizar la extención [Entity Framework Extensions](https://entityframework-extensions.net/bulk-savechanges). Instalada mediante su paquete nuget [Z.EntityFramework.Extensions](https://www.nuget.org/packages/Z.EntityFramework.Extensions/4.0.106)
  - Existen otras alternativas para este propósito como [EntityFramework.Utilities](https://github.com/MikaelEliasson/EntityFramework.Utilities) pero no todas son seguras o por lo general aún tienen temas pendientes en desarrollo.
 
