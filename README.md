@@ -20,7 +20,7 @@ Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
  - Debido a que el ambiente utilizado soporta la carga impuesta en el proceso, no se realiza particionamiento de los datos para intentar minimizar el uso de la memoria. Además, esto haría más lento el proceso de guardado masivo de los datos puesto que, según la [documentación](https://entityframework-extensions.net/bulk-insert) de la extensión utilizada, esta afirma que; para 1000 entidades se demoran 50ms, 2000 entidades 55ms, 5000 entidades 75ms. Por lo que si tuviéramos 5000 entidades y las separamos en bloques de 1000, el proceso demoraría 250ms vs 75ms que demora el bloque completo, de esta forma aseguran que mientras más entidades procesadas menor tiempo relacionado.
 
 # Ejecutar Proyecto
- - Una vez descargado el proyecto debe montar la base de datos a través del script que se encuentra dentro de la carpeta AppData. 
+ - Una vez descargado el proyecto debe montar la base de datos a través del script que se encuentra dentro de la carpeta AppData con nombre script.sql. 
  - Actualizar la cadena de conexión que está dentro del fichero Models/DBContext en el método OnConfiguring. (Para proyectos reales la cadena de conexión debe estar dentro de un fichero de configuración)
 
 # Conclusiones
