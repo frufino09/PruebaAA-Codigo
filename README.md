@@ -1,12 +1,16 @@
 # PruebaAA<Código>
 Adición y Eliminación masiva grandes volúmenes de datos .Net Core 3.1
 
-  - Se lee un fichero CSV alojado en una URL de Azure, para la lectura se utiliza la clase HttpWebRequest perteneciente al dominio System.Net dado que el fichero se encuentra público, en caso de haber tenido el fichero con seguridad bajo algún tipo de autenticación se deberia utilizar la bliblioteca Azure.Storage.Blobs con su respectiva autenticación definiendo la ruta de almacenamiento del fichero.
-  - Un vez obtenido los datos se transforman en un listado de objetos de tipo Inventory que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar la data obtenida se eliminan todos los registros existentes en la base de datos de alguna posible previa importación .
-  - El objetivo de este trabajo es lograr realizar este proceso con grandes volúmenes de datos de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
+# Problemática
+  - Se tiene un fichero .CSV alojado en una URL de Azure con 17,175,295 lineas de texto, para la lectura se utilizará la clase HttpWebRequest perteneciente al dominio System.Net dado que el fichero se encuentra público, en caso de haber tenido el fichero con seguridad bajo algún tipo de autenticación se deberia utilizar la bliblioteca Azure.Storage.Blobs con su respectiva autenticación definiendo la ruta de almacenamiento del fichero.
+  - Un vez obtenido los datos, se transforman en un listado de objetos que posteriormente se almacenan en una base de datos SQL Server. Antes de guardar los datos obtenidos se eliminarán todos los registros existentes en la base de datos de alguna posible previa importación.
+  - Este proceso se debe realizar con el mejor rendimiento posible y el minimo consumo de recursos.
+  
+ # Objetivo
+  - El objetivo de este desarrollo es lograr dar solución al problema planteado de la manera más eficiente posible y de la misma forma controlar los recusos utilizados.
   
 # Antecedentes
- - Entity Framework tiene fama de ser muy lento al guardar múltiples entidades. El problema de rendimiento se debe principalmente al método DetectChanges y al número de viajes de ida y vuelta de la base de datos. Por ejemplo, para SQL Server, para cada entidad que guarde, se debe realizar un viaje de ida y vuelta a la base de datos. Por lo tanto, si necesita insertar 100 entidades, se realizarán 100 viajes de ida y vuelta a la base de datos, lo que hace que el proceso sea muy lento. 
+ - Cualquiera pensaria en tratar de utilizar Entity Framework Core para dar solución al problema e intentar manejarlo de alguna forma pero; Entity Framework tiene fama de ser muy lento al guardar múltiples entidades. El problema de rendimiento se debe principalmente al método DetectChanges y al número de viajes de ida y vuelta de la base de datos. Por ejemplo, para SQL Server, para cada entidad que guarde, se debe realizar un viaje de ida y vuelta a la base de datos. Por lo tanto, si necesita insertar 100 entidades, se realizarán 100 viajes de ida y vuelta a la base de datos, lo que hace que el proceso sea muy lento. 
   - Ante este problema los desarrolladores en muchas ocasiones realizamos particiones en bloques de los datos para no cargar tanto la tarea de EF en su proceso de almacenamiento, logrando cierta mejora en el rendimiento del proceso, pero aún así es muy lento. Este proceso de particionar los datos también aporta una disminución de la memoria utilizada, de esta forma se lograria un balance entre rendimiento y la cantidad de memoria utilizada.
  
 # Propuesta de Solución
