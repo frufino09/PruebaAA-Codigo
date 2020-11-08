@@ -3,7 +3,7 @@ Adición y Eliminación masiva de grandes volúmenes de datos ASP.Net Core 3.1
 
 # Problemática
   - Se tiene un fichero .CSV alojado en una URL de Azure con 17,175,295 lineas de texto.
-  - Un vez obtenido los datos, se deben transformar en un listado de objetos que posteriormente se almacenan en una base de datos SQL Server.
+  - Un vez obtenido los datos, se deben transformar en un listado de objetos que posteriormente se almacenarán en una base de datos SQL Server.
   - Antes de guardar los datos obtenidos se eliminarán todos los registros existentes en la base de datos de alguna posible previa importación.
   - Este proceso se debe realizar con el mejor rendimiento posible y el minimo consumo de recursos.
   
