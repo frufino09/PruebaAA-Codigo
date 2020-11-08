@@ -22,7 +22,7 @@ Adición y Eliminación masiva grandes volúmenes de datos .Net Core
  - Luego de realizar las pruebas para un volumen de datos de 17,175,295 de registros, los resultados fueron los siguientes:
  
  ```sh
- - Entity Framework Extensions
+Entity Framework Extensions
 Eliminar  6m 49s 417ms
 Insertar  3m 54s 920ms
 ```
